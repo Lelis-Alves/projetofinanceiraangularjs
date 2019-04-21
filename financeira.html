@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="financeira">
+<head>
+	<title>Financeira & Linha de Créditos</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/financeira.css">
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/financeiraController.js"></script>
+
+	<body ng-controller="financeiraCtrl">
+		<div class="jumbotron">
+			<div class="container">
+				<h3>{{app2}}</h3>
+				<table class="table table-striped">
+					<tr>
+						<th>Nome do Cliente </th>
+						<th>Limite de Credito</th>
+						<th>Total de Juros</th>
+					<tr/>
+					<tr ng-repeat="emprestimo in emprestimos">
+						<td>{{emprestimo.nomeCliente}}</td>
+						<td>{{emprestimo.limiteCredito}}</td>
+						<td>{{emprestimo.total}}</td>
+					</tr>
+				</table>
+			<hr/>
+				<h3>{{app}}</h3>
+				<input class="form-control" type="text" ng-model="emprestimo.nomeCliente" placeholder="Nome do Cliente" />
+				<input class="form-control" type="text" ng-model="emprestimo.limiteCredito" placeholder="Limite de Crédito" />
+				<button class="btn btn-primary " ng-click="adicionarEmprestimo(emprestimo)" ng-disabled="!emprestimo.nomeCliente || !emprestimo.limiteCredito">Adicionar Emprestimo</button>
+
+			</div>
+		</div>
+	</body>
+</html>
